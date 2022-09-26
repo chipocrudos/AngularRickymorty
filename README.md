@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
+Consume Rick and Morty api.
+[https://rickandmortyapi.com/](https://rickandmortyapi.com/)
+
+Base on youtube tutorial from author [DOMINICODE](https://github.com/domini-code).
+[https://www.youtube.com/watch?v=hGU2ceM8aVY](https://rickandmortyapi.com/)
+
+Change log:
+ - Added icons to cards component
+ - Added a interceptor for redirect http error.
+ - Added a error pages
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -12,7 +23,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
+##### Angular
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+##### Docker
+Run and build image `docker-compose up` or `docker-compose up -d` for run prod image. 
+Navigate to `http://localhost`.
+
 
 ## Running unit tests
 

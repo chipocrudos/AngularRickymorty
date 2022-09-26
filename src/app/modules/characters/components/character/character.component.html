@@ -1,0 +1,98 @@
+
+    <ng-container *ngTemplateOutlet="detail ? detailCard : minimunCard"></ng-container>
+
+
+<!-- Templates -->
+
+<ng-template #minimunCard>
+    <div class="card card-link">
+
+        <div class="image">
+            <a [routerLink]="['/character/', character.id]">
+                <img
+                [src]="character.image"
+                [alt]="character.name"
+                class="card-img-top"
+                />
+            </a>
+    </div>
+    <div class="card-inner">
+        <div class="header">
+            <a [routerLink]="['/character/', character.id]">
+                <h2>{{character.name | slice: 0:15}}</h2>
+            </a>    
+            
+            <div class="icons">
+                <img src="{{'assets/icons/' + speciesIcon}}" alt="Species" class="card-icon">
+                <img src="{{'assets/icons/' + genderIcon}}" alt="Gender" class="card-icon">
+                <img src="{{'assets/icons/' + statusIcon}}" alt="Status" class="card-icon">
+                <img src="{{'assets/icons/' + locationIcon}}" alt="Location" class="card-icon">
+             </div>
+            
+        </div>
+        
+    </div>
+    <ng-container *ngTemplateOutlet="createDate"></ng-container>
+</div>
+</ng-template>
+
+<ng-template #detailCard>
+    <div class="card card-detail">
+
+        <div class="image">
+            <img
+            [src]="character.image"
+            [alt]="character.name"
+            class="card-img-top"
+            />
+        </div>
+        <div class="card-inner">
+            <div class="header">
+                <h2>{{character.name}}</h2>
+                <div class="d-flex justify-content-between px-2">
+                    <p>Species:</p>
+                    <p class="fw-normal">
+                    <img src="{{'assets/icons/' + speciesIcon}}" alt="Species" class="card-icon" *ngIf="speciesIcon != 'question-lg.svg'">
+                    {{character.species}}
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                    <p>Gender:</p>
+                    <p class="fw-normal">
+                    <img src="{{'assets/icons/' + genderIcon}}" alt="Gender" class="card-icon" *ngIf="character.gender !='unknown'">
+                    {{character.gender}}
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                    <p>Status:</p>
+                    <p class="fw-normal">
+                    <img src="{{'assets/icons/' + statusIcon}}" alt="Status" class="card-icon" *ngIf="character.status !='unknown'">
+                    {{character.status}}
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                    <p>Location:</p>
+                    <p class="fw-normal">
+                    <img src="{{'assets/icons/' + locationIcon}}" alt="Location" class="card-icon" *ngIf="character.location?.name !='unknown'">
+                    {{character.location?.name}}
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between px-2">
+                    <p>Origin:</p>
+                    <p class="fw-normal">{{character.origin?.name}}</p>
+                </div>
+
+            </div>
+
+            
+        </div>
+        <ng-container *ngTemplateOutlet="createDate"></ng-container>
+    </div>
+    </ng-template>
+
+    <ng-template #createDate>
+        <div class="card-footer text-muted">
+                <img src="assets/icons/calendar-heart.svg" alt="born date" class="card-icon">
+                {{character.created | date}}
+        </div>
+    </ng-template>

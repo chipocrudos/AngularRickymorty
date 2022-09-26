@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  ang:
+    build: 
+      dockerfile: docker/Dockerfile
+      context: .
+    ports:
+      - 80:80

@@ -1,0 +1,9 @@
+.dockerignore
+.gitignore
+docker-compose.yaml
+.vscode
+.angular
+.git
+node_modules
+docker
+dist
